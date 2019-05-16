@@ -58,10 +58,7 @@ namespace Database
                 parameters (dict ["Name", box name])
             }
 
-            let GetAll name = querySeqAsync<Types.Bird> {
-                script "SELECT * FROM Bird"
-                parameters (dict ["Name", box name])
-            }
+            let GetAll() = querySeqAsync<Types.Bird> { script "SELECT * FROM Bird" } 
 
             let UpdateAliasByName name alias = querySingleAsync<int> {
                 script "UPDATE Bird SET Alias = @Alias WHERE Name = @Name"
